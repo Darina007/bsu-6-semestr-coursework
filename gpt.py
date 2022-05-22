@@ -29,6 +29,7 @@ set_seed(config.seed if hasattr(config, 'seed') else set_seed.__defaults__[0])
 
 def create_chat_answer(prompt_text):
     prepared_text = historyUtils.user_based_dialog_former(prompt_text)
+    print(prepared_text)
     encoded_prompt = tokenizer.encode(prepared_text,
                                       add_special_tokens=False,
                                       return_tensors="pt")
@@ -56,9 +57,11 @@ def create_chat_answer(prompt_text):
                 tokenizer.decode(encoded_prompt[0],
                                  clean_up_tokenization_spaces=True)):].rsplit(' ', 1)[0])
         total_sequence = utils.cut_extra_stuff(total_sequence)
-        return historyUtils.historic_response_parser(
+        result_text = historyUtils.historic_response_parser(
             total_sequence,
             prompt_text.chat.id)
+        print("GPT: " + result_text)
+        return result_text
 
 
 def fill_sentence(message):

@@ -1,4 +1,4 @@
-token = '5339047040:AAEqQa_VTIRHEjFlFxHvvq_H6KIRr7arCB4'
+token = 'token'
 model = 'sberbank-ai/rugpt3medium_based_on_gpt2'
 
 message = 'Привет! Я бот, созданный для изучения работы нейросети GPT-3.'
